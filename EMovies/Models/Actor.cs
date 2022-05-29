@@ -7,7 +7,7 @@ namespace EMovies.Models
         [Key]
         public int Id { get; set; }
 
-        [Display(Name = "Profile Picture URL")]
+        [Display(Name = "Actor")]
         public string? ProfilePictureURL { get; set; }
 
 
