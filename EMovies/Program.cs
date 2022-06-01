@@ -16,7 +16,10 @@ namespace EMovies
             builder.Services.AddRazorPages().AddRazorRuntimeCompilation();
             builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnectionString")));
             //Services Configuration
-            builder.Services.AddScoped<IActorService, ActorsService>();
+            builder.Services.AddScoped<IActorsService, ActorsService>();
+            builder.Services.AddScoped<IProducersService, ProducersService>();
+            builder.Services.AddScoped<ICinemasService, CinemasService>();
+            builder.Services.AddScoped<IMoviesService, MoviesService>();
 
             var app = builder.Build();
 

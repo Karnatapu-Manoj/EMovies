@@ -1,10 +1,11 @@
-﻿using EMovies.Data.Enums;
+﻿using EMovies.Data.BaseRepo;
+using EMovies.Data.Enums;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EMovies.Models
 {
-    public class Movie
+    public class Movie : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -16,15 +17,16 @@ namespace EMovies.Models
         public DateTime EndDate { get; set; }
         public MovieCategory MovieCategory { get; set; }
 
-        public virtual ICollection<Actor>? Actors { get; set; }
+        //public virtual ICollection<Actor>? Actors { get; set; }
+        public List<Actor_Movie>? Actors_Movies { get; set; }
 
         // Cinemas Section
-        public int CinemaID { get; set; }
+        public int? CinemaID { get; set; }
         [ForeignKey("CinemaID")]
         public Cinema? Cinema { get; set; }
 
         //Producers Section
-        public int ProducerID { get; set; }
+        public int? ProducerID { get; set; }
         [ForeignKey("ProducerID")]
         public Producer? Producer { get; set; }
     }

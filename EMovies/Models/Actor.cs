@@ -1,8 +1,9 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using EMovies.Data.BaseRepo;
+using System.ComponentModel.DataAnnotations;
 
 namespace EMovies.Models
 {
-    public class Actor
+    public class Actor : IEntityBase
     {
         [Key]
         public int Id { get; set; }
@@ -23,6 +24,8 @@ namespace EMovies.Models
 
         //Many-To-Many RelationShip between Actor and Movies
         //an Actor can have(perform) Multiple Movies
-        public virtual ICollection<Movie>? Movies { get; set; }
+        //public virtual ICollection<Movie>? Movies { get; set; }
+
+        public List<Actor_Movie>? Actors_Movies { get; set; }
     }
 }
